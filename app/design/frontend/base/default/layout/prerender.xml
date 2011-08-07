@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category   Laurent
+@package    Laurent_Prerender
+@copyright  Copyright (c) 2011 Laurent Clouet
+@license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+@author     Laurent Clouet <laurent35240@gmail.com>
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="prerender/link" name="prerender_link" template="prerender/link.phtml" />
+        </reference>
+    </default>
+</layout>
