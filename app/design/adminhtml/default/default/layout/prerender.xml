@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@category   Laurent
+@package    Laurent_Prerender
+@copyright  Copyright (c) 2011 Laurent Clouet
+@license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+@author     Laurent Clouet <laurent35240@gmail.com>
+-->
+<layout version="0.1.0">
+    <adminhtml_cms_page_edit>
+        <reference name="cms_page_edit_tabs">
+            <block type="prerender/adminhtml_cms_page_edit_tab_prerender" name="cms_page_edit_tab_prerender" />
+            <action method="addTab"><name>prerender</name><block>cms_page_edit_tab_prerender</block></action>
+        </reference>
+    </adminhtml_cms_page_edit>
+</layout>

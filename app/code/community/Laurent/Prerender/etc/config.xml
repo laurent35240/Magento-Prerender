@@ -19,6 +19,24 @@
             </prerender>
         </blocks>
     </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <prerender>
+                    <file>prerender.xml</file>
+                </prerender>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Laurent_Prerender>
+                    <files>
+                        <default>Laurent_Prerender.csv</default>
+                    </files>
+                </Laurent_Prerender>
+            </modules>
+        </translate>
+    </adminhtml>
     <frontend>
         <layout>
             <updates>
