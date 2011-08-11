@@ -160,3 +160,4 @@
 /app/design/adminhtml/default/default/locale/
 /app/design/adminhtml/default/default/template/
 /app/design/adminhtml/default/find/
+/test/selenium/constants.php
