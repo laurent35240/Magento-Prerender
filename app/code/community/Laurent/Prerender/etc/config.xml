@@ -18,6 +18,13 @@
                 <class>Laurent_Prerender_Block</class>
             </prerender>
         </blocks>
+        <resources>
+            <prerender_setup>
+                <setup>
+                    <module>Laurent_Prerender</module>
+                </setup>
+            </prerender_setup>
+        </resources>
     </global>
     <adminhtml>
         <layout>
