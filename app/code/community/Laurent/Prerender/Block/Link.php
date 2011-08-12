@@ -16,10 +16,18 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
     
     /**
      * Get prerender url link for current page viewed
-     * @return string Url of link to prerender
+     * @return string Url of link to prerender empty strong if no link to prerender
      */
     public function getPrerenderLink(){
-        return 'pouet';
+        $prerenderLink = '';
+        
+        //Prerender link for cms page
+        $cmsPage = Mage::getSingleton('cms/page');
+        if($cmsPage->getId()){
+            $prerenderLink = $cmsPage->getPrerenderLink();
+        }
+        
+        return $prerenderLink;
     }
     
 }
