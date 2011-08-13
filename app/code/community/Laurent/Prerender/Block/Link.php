@@ -14,40 +14,61 @@
  */
 class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
     
+    protected $_prerenderLink = null;
+    
+    public function getCacheLifetime() {
+        return 86400;
+    }
+    
+    public function getCacheKey() {
+        $key = 'PRERENDER_LINK_';
+        $key .= sha1($this->getRequest()->getRequestUri());
+        
+        return $key;
+    }
+    
+    public function getCacheTags(){
+        return array(
+            Mage_Cms_Model_Page::CACHE_TAG,
+        );
+    }
+    
     /**
      * Get prerender url link for current page viewed
      * @return string Url of link to prerender empty strong if no link to prerender
      */
     public function getPrerenderLink(){
-        $prerenderLink = '';
-        
-        //Prerender link for cms page
-        $cmsPage = Mage::getSingleton('cms/page');
-        if($cmsPage->getId()){
-            $prerenderLink = $cmsPage->getPrerenderLink();
-        }
-        
-        //Prerender link for category page
-        $category = Mage::registry('current_category');
-        if($category && $category->getId()){
-            $layer = Mage::getSingleton('catalog/layer');
-            if($layer){
-                $productCollection = $layer->getProductCollection();
-                
-                //Loading blocks usefull for getting next page url
-                $pagerBlock = new Mage_Page_Block_Html_Pager();
-                $toolbarBlock = new Mage_Catalog_Block_Product_List_Toolbar();
-                
-                $pagerBlock->setAvailableLimit($toolbarBlock->getAvailableLimit());
-                $pagerBlock->setCollection($productCollection);
-                
-                if(!$pagerBlock->isLastPage()){
-                    $prerenderLink = $pagerBlock->getNextPageUrl();
+        if(is_null($this->_prerenderLink)){
+            $this->_prerenderLink = '';
+
+            //Prerender link for cms page
+            $cmsPage = Mage::getSingleton('cms/page');
+            if($cmsPage->getId()){
+                $this->_prerenderLink = $cmsPage->getPrerenderLink();
+            }
+
+            //Prerender link for category page
+            $category = Mage::registry('current_category');
+            if($category && $category->getId()){
+                $layer = Mage::getSingleton('catalog/layer');
+                if($layer){
+                    $productCollection = $layer->getProductCollection();
+
+                    //Loading blocks usefull for getting next page url
+                    $pagerBlock = new Mage_Page_Block_Html_Pager();
+                    $toolbarBlock = new Mage_Catalog_Block_Product_List_Toolbar();
+
+                    $pagerBlock->setAvailableLimit($toolbarBlock->getAvailableLimit());
+                    $pagerBlock->setCollection($productCollection);
+
+                    if(!$pagerBlock->isLastPage()){
+                        $this->_prerenderLink = $pagerBlock->getNextPageUrl();
+                    }
                 }
             }
         }
         
-        return $prerenderLink;
+        return $this->_prerenderLink;
     }
     
 }
