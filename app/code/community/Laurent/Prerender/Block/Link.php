@@ -27,6 +27,26 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
             $prerenderLink = $cmsPage->getPrerenderLink();
         }
         
+        //Prerender link for category page
+        $category = Mage::registry('current_category');
+        if($category && $category->getId()){
+            $layer = Mage::getSingleton('catalog/layer');
+            if($layer){
+                $productCollection = $layer->getProductCollection();
+                
+                //Loading blocks usefull for getting next page url
+                $pagerBlock = new Mage_Page_Block_Html_Pager();
+                $toolbarBlock = new Mage_Catalog_Block_Product_List_Toolbar();
+                
+                $pagerBlock->setAvailableLimit($toolbarBlock->getAvailableLimit());
+                $pagerBlock->setCollection($productCollection);
+                
+                if(!$pagerBlock->isLastPage()){
+                    $prerenderLink = $pagerBlock->getNextPageUrl();
+                }
+            }
+        }
+        
         return $prerenderLink;
     }
     

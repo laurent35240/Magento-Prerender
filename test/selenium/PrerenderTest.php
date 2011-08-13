@@ -42,7 +42,7 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
     /**
      * @test
      */
-    public function savingPrerender(){
+    public function setPrerenderOnHomePageAndCheckValueSaved(){
         $urlToPrerender = 'http://www.magento-prerender.dev/test';
         
         $this->setPrerenderOnHomePage($urlToPrerender);
@@ -66,6 +66,33 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
         
         //Checking that prerender link is correct there
         $this->assertElementPresent("//link[@rel='prerender' and @href='$urlToPrerender']");
+    }
+    
+    /**
+     * @test
+     */
+    public function checkPrerenderOnCategoryWithNextPage()
+    {
+        $categoryPage = 'http://www.magento-prerender.dev/music.html';
+        $categoryNextPage = 'http://www.magento-prerender.dev/music.html?p=2';
+        
+        $this->open($categoryPage);
+        
+        //Checking that prerender link is correct there
+        $this->assertElementPresent("//link[@rel='prerender' and @href='$categoryNextPage']");
+    }
+    
+    /**
+     * @test
+     */
+    public function checkPrerenderOnCategoryWithNoNextPage()
+    {
+        $categoryPage = 'http://www.magento-prerender.dev/music.html?limit=15';
+        
+        $this->open($categoryPage);
+        
+        //Checking that there is no prerender link
+        $this->assertFalse($this->isElementPresent("//link[@rel='prerender']"));
     }
     
 }

@@ -10,4 +10,6 @@
  */
 
 ?>
+<?php if($this->getPrerenderLink() != ''): ?>
 <link rel="prerender" href="<?php echo $this->getPrerenderLink(); ?>" />
+<?php endif; ?>
