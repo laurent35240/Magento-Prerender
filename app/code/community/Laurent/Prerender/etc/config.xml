@@ -18,6 +18,16 @@
                 <class>Laurent_Prerender_Block</class>
             </prerender>
         </blocks>
+        <helpers>
+            <prerender>
+                <class>Laurent_Prerender_Helper</class>
+            </prerender>
+        </helpers>
+        <models>
+            <prerender>
+                <class>Laurent_Prerender_Model</class>
+            </prerender>
+        </models>
         <resources>
             <prerender_setup>
                 <setup>
@@ -53,4 +63,11 @@
             </updates>
         </layout>
     </frontend>
+    <default>
+        <system>
+            <prerender>
+                <mode>guessing</mode>
+            </prerender>
+        </system>
+    </default>
 </config>

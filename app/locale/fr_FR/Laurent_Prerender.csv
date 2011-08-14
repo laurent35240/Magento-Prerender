@@ -1,3 +1,8 @@
+"Based on Logs mode","Mode basé sur les logs"
+"Guessing mode","Mode par supposition"
+"In <strong>Guessing Mode</strong>, you can set prerender links for CMS page. Prerender links for category pages will be the next page.<br />In <strong>Based Log Mode</strong>, prerender link will be the most often next page viewed.","Avec le <strong>Mode par Supposition</strong>, vous pouvez définir le lien de prérendu pour les page CMS. Les liens de prérendu pour les page de catégorie seront les page suivantes.<br />Avec le <strong>Mode Basé sur les logs</strong>, les liens de prérendu seront les pages suivantes les plus fréquemment vues."
 "Link","Lien"
 "Link for the most likely next page.<br/>It will be prerendered in Google Chrome","Lien vers la page suivante la plus probable.<br/>Cette page sera alors prérendu dans Google Chrome."
 "Prerender Link","Lien pour le prérendu"
+"Prerender Link Mode","Mode pour le lien de prérendu"
+"Prerender Options","Options pour le Prérendu"
