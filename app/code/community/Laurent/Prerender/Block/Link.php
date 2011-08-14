@@ -58,7 +58,7 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
                     $pagerBlock = new Mage_Page_Block_Html_Pager();
                     $toolbarBlock = new Mage_Catalog_Block_Product_List_Toolbar();
 
-                    $pagerBlock->setAvailableLimit($toolbarBlock->getAvailableLimit());
+                    $pagerBlock->setLimit($toolbarBlock->getLimit());
                     $pagerBlock->setCollection($productCollection);
 
                     if(!$pagerBlock->isLastPage()){

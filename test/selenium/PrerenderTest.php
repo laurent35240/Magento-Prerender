@@ -85,7 +85,7 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
     /**
      * @test
      */
-    public function checkPrerenderOnCategoryWithNoNextPage()
+    public function checkNoPrerenderOnCategoryWithNoNextPage()
     {
         $categoryPage = 'http://www.magento-prerender.dev/music.html?limit=15';
         
@@ -95,6 +95,18 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
         $this->assertFalse($this->isElementPresent("//link[@rel='prerender']"));
     }
     
+    /**
+     * @test
+     */
+    public function checkNoPrerenderOnCategoryModeListWithNoNextPage()
+    {
+        $categoryPage = 'http://www.magento-prerender.dev/music.html?mode=list';
+        
+        $this->open($categoryPage);
+        
+        //Checking that there is no prerender link
+        $this->assertFalse($this->isElementPresent("//link[@rel='prerender']"));
+    }
 }
 
 ?>
