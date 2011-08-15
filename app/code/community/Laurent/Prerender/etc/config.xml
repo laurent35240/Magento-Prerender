@@ -67,6 +67,7 @@
         <system>
             <prerender>
                 <mode>guessing</mode>
+                <days_period>7</days_period>
             </prerender>
         </system>
     </default>

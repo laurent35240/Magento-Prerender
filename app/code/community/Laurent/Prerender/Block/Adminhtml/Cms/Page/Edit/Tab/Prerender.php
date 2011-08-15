@@ -75,7 +75,8 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
      * @return boolean
      */
     public function canShowTab() {
-        return true;
+        //This tab is displayed only in guessing mode
+        return (Mage::getStoreConfig('system/prerender/mode') == Laurent_Prerender_Model_Adminhtml_Config_Mode::MODE_GUESSING);
     }
 
     /**

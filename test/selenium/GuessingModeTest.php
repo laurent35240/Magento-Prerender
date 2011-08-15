@@ -8,34 +8,15 @@
  * @author     Laurent Clouet <laurent35240@gmail.com>
  */
 
-//Check file constants_ex.php and rename it consttans.php
-require_once 'constants.php'; 
+require_once 'MagentoTestCase.php';
 
 /**
- * Selenium tests for Prerender module
+ * Selenium tests for Prerender module in Guessing Mode
  *
  */
-class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
-    
-    protected function setUp()
-    {
-        $this->setBrowser('*chrome');
-        $this->setBrowserUrl('http://www.magento-prerender.dev/');
-    }
-    
-    protected function logToBO(){
-        //Connection to BO
-        $this->open("/admin");
-        $this->type("id=username", LOGIN_BO);
-        $this->type("id=login", PASSWORD_BO);
-        $this->click("css=input.form-button");
-        $this->waitForPageToLoad("30000");
-    }
-
+class GuessingModeTest extends MagentoTestCase{
 
     protected function setPrerenderOnHomePage($prerenderLink){
-        $this->logToBO();
-        
         //Editing prerender link for home page
         $this->open('/admin/cms_page/edit/page_id/2/');
         $this->click("css=#page_tabs_prerender > span");
@@ -48,6 +29,10 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
      * @test
      */
     public function setPrerenderOnHomePageAndCheckValueSaved(){
+        //Putting correct mode for this tests
+        $this->logToBO();
+        $this->setPrerenderMode('guessing');
+        
         $urlToPrerender = 'http://www.magento-prerender.dev/test';
         
         $this->setPrerenderOnHomePage($urlToPrerender);
@@ -62,6 +47,10 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
      */
     public function setPrerenderOnHomePageAndCheckOnFront()
     {
+        //Putting correct mode for this tests
+        $this->logToBO();
+        $this->setPrerenderMode('guessing');
+        
         $urlToPrerender = 'http://www.magento-prerender.dev/test2';
         
         $this->setPrerenderOnHomePage($urlToPrerender);
@@ -78,6 +67,10 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
      */
     public function checkPrerenderOnCategoryWithNextPage()
     {
+        //Putting correct mode for this tests
+        $this->logToBO();
+        $this->setPrerenderMode('guessing');
+        
         $categoryPage = 'http://www.magento-prerender.dev/music.html';
         $categoryNextPage = 'http://www.magento-prerender.dev/music.html?p=2';
         
@@ -92,6 +85,10 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
      */
     public function checkNoPrerenderOnCategoryWithNoNextPage()
     {
+        //Putting correct mode for this tests
+        $this->logToBO();
+        $this->setPrerenderMode('guessing');
+        
         $categoryPage = 'http://www.magento-prerender.dev/music.html?limit=15';
         
         $this->open($categoryPage);
@@ -105,30 +102,16 @@ class PrerenderTest extends PHPUnit_Extensions_SeleniumTestCase{
      */
     public function checkNoPrerenderOnCategoryModeListWithNoNextPage()
     {
+        //Putting correct mode for this tests
+        $this->logToBO();
+        $this->setPrerenderMode('guessing');
+        
         $categoryPage = 'http://www.magento-prerender.dev/music.html?mode=list';
         
         $this->open($categoryPage);
         
         //Checking that there is no prerender link
         $this->assertFalse($this->isElementPresent("//link[@rel='prerender']"));
-    }
-    
-    /**
-     * @test
-     */
-    public function putModeOnLogBasedAndCheckNoPrerenderFieldForCmsPages(){
-        $this->logToBO();
-        
-        //Setting Log Based Mode
-        $this->open('http://www.magento-prerender.dev/index.php/admin/system_config/edit/section/system/');
-        $this->click("id=system_prerender-head");
-        $this->select("id=system_prerender_mode", "value=log_based");
-        $this->click("//div[@id='content']/div/div[2]/table/tbody/tr/td[2]/button");
-        $this->waitForPageToLoad("30000");
-        
-        //Checking that prerender tab is not anymore present on cms editing page
-        $this->open('/admin/cms_page/edit/page_id/2/');
-        $this->assertFalse($this->isElementPresent("css=#page_tabs_prerender > span"));
     }
 }
 
