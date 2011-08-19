@@ -161,3 +161,8 @@
 /app/design/adminhtml/default/default/template/
 /app/design/adminhtml/default/find/
 /test/selenium/constants.php
+/var/package/
+/app/design/frontend/base/default/layout/catalog_msrp.xml
+/app/design/frontend/base/default/layout/persistent.xml
+/app/design/frontend/base/default/template/persistent/
+/app/etc/modules/Mage_Persistent.xml
