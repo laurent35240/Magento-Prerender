@@ -72,6 +72,8 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
             }
             else{
                 //Log Based Mode
+                $url = $this->getRequest()->getRequestUri();
+                $this->_prerenderLink = Mage::helper('prerender')->getMostCommonNextUrl($url);
             }
         }
 
