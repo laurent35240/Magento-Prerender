@@ -2,7 +2,7 @@ Magento Prerender Extension
 ===========================
 
 This extension enable Google Chrome Prerender functionnality on your Magento 
-site. This functionnality allow you to prerender another page after viewed page
+site. This functionality allow you to prerender another page after viewed page
 is loaded. You can then for example load next page of a category while firt page
 is being viewed by customer.
 
