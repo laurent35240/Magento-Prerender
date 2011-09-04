@@ -1,0 +1,119 @@
+<_>
+   <form_key>ekOkNTR6S48jPvbX</form_key>
+   <name>Prerender</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>Extension enabling Google Chrome Prerender functionality on your Magento 
+site.</summary>
+   <description>This extension enable Google Chrome Prerender functionnality on your Magento 
+site. This functionality allow you to prerender another page after viewed page
+is loaded. You can then for example load next page of a category while firt page
+is being viewed by customer.</description>
+   <license>Academic Free License (AFL 3.0)</license>
+   <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
+   <version>0.1.0</version>
+   <stability>beta</stability>
+   <notes>First release of Prerender extension</notes>
+   <authors>
+      <name>
+         <name>Laurent Clouet</name>
+      </name>
+      <user>
+         <user>laurent35240</user>
+      </user>
+      <email>
+         <email>laurent35240@gmail.com</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>            </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>mageetc</target>
+         <target>magelocale</target>
+         <target>magetest</target>
+         <target>magetest</target>
+      </target>
+      <path>
+         <path/>
+         <path>Laurent/Prerender</path>
+         <path>adminhtml/default/default/layout/prerender.xml</path>
+         <path>frontend/base/default/layout/prerender.xml</path>
+         <path>frontend/base/default/template/prerender</path>
+         <path>modules/Laurent_Prerender.xml</path>
+         <path>fr_FR/Laurent_Prerender.csv</path>
+         <path>unit</path>
+         <path>selenium</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>dir</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore>#constants.php#</ignore>
+      </ignore>
+   </contents>
+</_>
