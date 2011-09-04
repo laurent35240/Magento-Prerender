@@ -13,6 +13,8 @@
  */
 class Laurent_Prerender_Helper_Data extends Mage_Core_Helper_Abstract {
     
+    protected $_rewriteModel = null;
+
     /**
      * Get the most common next url from given url based on website logs
      * 
@@ -83,7 +85,7 @@ class Laurent_Prerender_Helper_Data extends Mage_Core_Helper_Abstract {
         
         //Check if an url rewrite exists for requested url
         //We need then the rewritten url for looking into logs
-        $rewriteModel = Mage::getModel('core/url_rewrite');
+        $rewriteModel = $this->_getRewriteModel();
         $rewriteModel->load($url, 'target_path');
         if($rewriteModel->getId()){
             $url = $rewriteModel->getRequestPath();
@@ -100,6 +102,19 @@ class Laurent_Prerender_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         
         return $url;
+    }
+    
+    /**
+     * Get cached rewrite model
+     * @return Mage_Core_Model_Url_Rewrite 
+     */
+    protected function _getRewriteModel(){
+        if(is_null($this->_rewriteModel)){
+            $this->_rewriteModel = Mage::getModel('core/url_rewrite');
+        }
+        $this->_rewriteModel->setData(array());
+        
+        return $this->_rewriteModel;
     }
     
 }

@@ -166,3 +166,5 @@
 /app/design/frontend/base/default/layout/persistent.xml
 /app/design/frontend/base/default/template/persistent/
 /app/etc/modules/Mage_Persistent.xml
+/.directory
+/.htaccess.sample
