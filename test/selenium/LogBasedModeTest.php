@@ -46,8 +46,7 @@ class LogBasedModeTest extends MagentoTestCase{
         
         //Refreshing cache
         $this->open("/admin/cache/");
-        $this->click("//input[@name='types' and @value='block_html']");
-        $this->click("//form[@id='cache_grid_massaction-form']/fieldset/span[4]/button");
+        $this->click("//div[@id='page:main-container']/div[2]/table/tbody/tr/td[2]/button");
         $this->waitForPageToLoad("30000");
         
         //Checking that category page has now the product link has prerender link
