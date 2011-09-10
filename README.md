@@ -48,6 +48,6 @@ You can find details about prerender links in [Google Chrome Labs][3]
 ## Licence
 Magento Prerender Extension is licensed under AFL 3.0 license.
 
-[1]: 
+[1]: http://www.magentocommerce.com/magento-connect/laurent35240/extension/7921/prerender
 [2]: https://github.com/laurent35240/Magento-Prerender/issues
 [3]: http://code.google.com/chrome/whitepapers/prerender.html
