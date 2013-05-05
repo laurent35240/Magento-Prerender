@@ -30,5 +30,3 @@ class ModeTest extends PHPUnit_Framework_TestCase{
     }
     
 }
-
-?>

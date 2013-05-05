@@ -100,5 +100,3 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
     }
 
 }
-
-?>

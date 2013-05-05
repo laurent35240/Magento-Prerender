@@ -55,5 +55,3 @@ class LogBasedModeTest extends MagentoTestCase{
     }
     
 }
-
-?>

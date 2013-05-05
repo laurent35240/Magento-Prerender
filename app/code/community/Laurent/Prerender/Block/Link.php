@@ -81,5 +81,3 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
     }
 
 }
-
-?>

@@ -12,4 +12,3 @@
 
 define('LOGIN_BO', 'login');
 define('PASSWORD_BO', 'password');
-?>

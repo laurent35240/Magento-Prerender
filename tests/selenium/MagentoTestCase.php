@@ -41,5 +41,3 @@ class MagentoTestCase extends PHPUnit_Extensions_SeleniumTestCase{
     }
     
 }
-
-?>

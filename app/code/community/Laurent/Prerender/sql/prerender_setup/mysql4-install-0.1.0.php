@@ -18,4 +18,3 @@ $installer->startSetup();
 $installer->run("
     ALTER TABLE  `{$this->getTable('cms/page')}` ADD  `prerender_link` VARCHAR( 255 ) NULL
 ");
-?>

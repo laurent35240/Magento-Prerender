@@ -33,5 +33,3 @@ class Laurent_Prerender_Model_Adminhtml_Config_Mode {
     }
     
 }
-
-?>

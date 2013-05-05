@@ -114,5 +114,3 @@ class GuessingModeTest extends MagentoTestCase{
         $this->assertFalse($this->isElementPresent("//link[@rel='prerender']"));
     }
 }
-
-?>
