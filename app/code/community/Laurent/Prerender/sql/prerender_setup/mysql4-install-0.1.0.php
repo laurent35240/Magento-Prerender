@@ -10,11 +10,20 @@
  * Add prerender link field for cms pages
  */
 
-$installer = $this;
-/* @var $installer Mage_Core_Model_Resource_Setup */
+/* @var $this Mage_Core_Model_Resource_Setup */
 
-$installer->startSetup();
+$this->startSetup();
 
-$installer->run("
-    ALTER TABLE  `{$this->getTable('cms/page')}` ADD  `prerender_link` VARCHAR( 255 ) NULL
-");
+$this->getConnection()->addColumn(
+    $this->getTable('cms/page'),
+    'prerender_link',
+    array(
+        'type'      => Varien_Db_Ddl_Table::TYPE_TEXT,
+        'length'    => 255,
+        'nullable'  => true,
+        'comment'   => 'Next url for prerender meta tag',
+    )
+);
+
+$this->endSetup();
+
