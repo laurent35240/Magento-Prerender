@@ -9,28 +9,45 @@
  */
 
 /**
- * Block for displaying prerendering link in HTML <head>
+ * Block for displaying pre-rendering link in HTML <head>
  *
  */
 class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
 
     protected $_prerenderLink = null;
 
+    /**
+     * Get block cache life time
+     *
+     * @return int
+     */
     public function getCacheLifetime() {
         return 86400;
     }
 
-    public function getCacheKey() {
-        $key = 'PRERENDER_LINK_';
-        $key .= sha1($this->getRequest()->getRequestUri());
+    /**
+     * Get cache key informative items
+     *
+     * @return array
+     */
+    public function getCacheKeyInfo()
+    {
+        $cacheKeyInfo = parent::getCacheKeyInfo();
+        $cacheKeyInfo[] = $this->getRequest()->getRequestUri();
 
-        return $key;
+        return $cacheKeyInfo;
     }
 
+    /**
+     * Get tags array for saving cache
+     *
+     * @return array
+     */
     public function getCacheTags() {
-        return array(
-            Mage_Cms_Model_Page::CACHE_TAG,
-        );
+        $cacheTags = parent::getCacheTags();
+        $cacheTags[] = Mage_Cms_Model_Page::CACHE_TAG;
+
+        return $cacheTags;
     }
 
     /**
@@ -59,7 +76,7 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
                     if ($layer) {
                         $productCollection = $layer->getProductCollection();
 
-                        //Loading blocks usefull for getting next page url
+                        //Loading blocks useful for getting next page url
                         $pagerBlock = new Mage_Page_Block_Html_Pager();
                         $toolbarBlock = new Mage_Catalog_Block_Product_List_Toolbar();
 
