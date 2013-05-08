@@ -12,7 +12,8 @@
  * Block for displaying pre-rendering link in HTML <head>
  *
  */
-class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
+class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template
+{
 
     protected $_prerenderLink = null;
 
@@ -21,7 +22,8 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
      *
      * @return int
      */
-    public function getCacheLifetime() {
+    public function getCacheLifetime()
+    {
         return 86400;
     }
 
@@ -43,7 +45,8 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
      *
      * @return array
      */
-    public function getCacheTags() {
+    public function getCacheTags()
+    {
         $cacheTags = parent::getCacheTags();
         $cacheTags[] = Mage_Cms_Model_Page::CACHE_TAG;
 
@@ -54,11 +57,12 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
      * Get prerender url link for current page viewed
      * @return string Url of link to prerender empty strong if no link to prerender
      */
-    public function getPrerenderLink() {
+    public function getPrerenderLink()
+    {
         if (is_null($this->_prerenderLink)) {
             if (Mage::getStoreConfig('system/prerender/mode') == Laurent_Prerender_Model_Adminhtml_Config_Mode::MODE_GUESSING) {
                 //Guessing Mode
-                
+
                 $this->_prerenderLink = '';
 
                 //Prerender link for cms page
@@ -88,8 +92,7 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
                         }
                     }
                 }
-            }
-            else{
+            } else {
                 //Log Based Mode
                 $url = $this->getRequest()->getRequestUri();
                 /** @var Laurent_Prerender_Helper_Data $prerenderHelper */

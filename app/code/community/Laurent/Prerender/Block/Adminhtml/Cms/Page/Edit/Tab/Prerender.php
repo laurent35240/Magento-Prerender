@@ -12,10 +12,11 @@
  * Block for putting prerender link in CMS page
  *
  */
-class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender 
-    extends Mage_Adminhtml_Block_Widget_Form 
-    implements Mage_Adminhtml_Block_Widget_Tab_Interface {
-    
+class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
+    extends Mage_Adminhtml_Block_Widget_Form
+    implements Mage_Adminhtml_Block_Widget_Tab_Interface
+{
+
     protected function _prepareForm()
     {
         /* @var $model Mage_Cms_Model_Page */
@@ -38,11 +39,11 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
         $fieldset = $form->addFieldset('base_fieldset', array('legend' => $this->__('Prerender Link')));
 
         $fieldset->addField('prerender_link', 'text', array(
-            'name'      => 'prerender_link',
-            'label'     => $this->__('Link'),
-            'title'     => $this->__('Link'),
-            'disabled'  => $isElementDisabled,
-            'note'      => $this->__('Link for the most likely next page.<br/>It will be prerendered in Google Chrome'),
+            'name' => 'prerender_link',
+            'label' => $this->__('Link'),
+            'title' => $this->__('Link'),
+            'disabled' => $isElementDisabled,
+            'note' => $this->__('Link for the most likely next page.<br/>It will be prerendered in Google Chrome'),
         ));
 
         $form->setValues($model->getData());
@@ -50,13 +51,14 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
 
         return parent::_prepareForm();
     }
-    
+
     /**
      * Return Tab label
      *
      * @return string
      */
-    public function getTabLabel() {
+    public function getTabLabel()
+    {
         return $this->__('Prerender Link');
     }
 
@@ -65,7 +67,8 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
      *
      * @return string
      */
-    public function getTabTitle() {
+    public function getTabTitle()
+    {
         return $this->__('Prerender Link');
     }
 
@@ -74,7 +77,8 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
      *
      * @return boolean
      */
-    public function canShowTab() {
+    public function canShowTab()
+    {
         //This tab is displayed only in guessing mode
         return (Mage::getStoreConfig('system/prerender/mode') == Laurent_Prerender_Model_Adminhtml_Config_Mode::MODE_GUESSING);
     }
@@ -84,10 +88,11 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
      *
      * @return boolean
      */
-    public function isHidden() {
+    public function isHidden()
+    {
         return false;
     }
-    
+
     /**
      * Check permission for passed action
      *
