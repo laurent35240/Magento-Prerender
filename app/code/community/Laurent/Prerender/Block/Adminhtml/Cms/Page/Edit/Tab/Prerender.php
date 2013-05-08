@@ -33,9 +33,9 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
 
         $form = new Varien_Data_Form();
 
-        $form->setHtmlIdPrefix('page_');
+        $form->setData('html_id_prefix', 'page_');
 
-        $fieldset = $form->addFieldset('base_fieldset', array('legend'=>$this->__('Prerender Link')));
+        $fieldset = $form->addFieldset('base_fieldset', array('legend' => $this->__('Prerender Link')));
 
         $fieldset->addField('prerender_link', 'text', array(
             'name'      => 'prerender_link',
@@ -96,7 +96,9 @@ class Laurent_Prerender_Block_Adminhtml_Cms_Page_Edit_Tab_Prerender
      */
     protected function _isAllowedAction($action)
     {
-        return Mage::getSingleton('admin/session')->isAllowed('cms/page/' . $action);
+        /** @var Mage_Admin_Model_Session $adminSession */
+        $adminSession = Mage::getSingleton('admin/session');
+        return $adminSession->isAllowed('cms/page/' . $action);
     }
 
 }

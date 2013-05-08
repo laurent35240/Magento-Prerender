@@ -27,7 +27,9 @@ class Laurent_Prerender_Helper_Data extends Mage_Core_Helper_Abstract {
         $url = $this->getRewrittenUrl($url);
         
         //Looking into logs
-        $readAdapter = Mage::getSingleton('core/resource')->getConnection('read');
+        /** @var Mage_Core_Model_Resource $resourceSingleton */
+        $resourceSingleton = Mage::getSingleton('core/resource');
+        $readAdapter = $resourceSingleton->getConnection('read');
         $logResourceModel = Mage::getResourceSingleton('log/log');
         $nbDays = Mage::getStoreConfig('system/prerender/days_period');
         $currentDate = Mage::app()->getLocale()->date();
@@ -48,8 +50,6 @@ class Laurent_Prerender_Helper_Data extends Mage_Core_Helper_Abstract {
                 ->where('url_table.visit_time > ?', $minDate->toString(Zend_Date::ISO_8601))
                 ->group('url_info_table.url')
                 ->order('COUNT(*) DESC');
-        
-        $selectString = $select->__toString();
         
         $results = $readAdapter->fetchAll($select);
         

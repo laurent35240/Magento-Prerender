@@ -39,8 +39,8 @@ class LogBasedModeTest extends MagentoTestCase{
         
         //Going five time to same product page from one category page
         for($i=0; $i<5; $i++){
-            $this->open('/music.html');
-            $this->click("link=Sigur Rós - Von");
+            $this->open('/apparel.html');
+            $this->click("link=Coalesce: Functioning On Impatience T-Shirt");
             $this->waitForPageToLoad("30000");
         }
         
@@ -51,7 +51,7 @@ class LogBasedModeTest extends MagentoTestCase{
         
         //Checking that category page has now the product link has prerender link
         $this->open('/music.html');
-        $this->assertElementPresent("//link[@rel='prerender' and @href='http://www.magento-prerender.dev/music/sigur-ros-von.html']");
+        $this->assertElementPresent("//link[@rel='prerender' and @href='http://www.magento-prerender.dev/coalesce-functioning-on-impatience-t-shirt.html']");
     }
     
 }

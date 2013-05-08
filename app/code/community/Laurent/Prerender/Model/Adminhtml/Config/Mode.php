@@ -22,12 +22,12 @@ class Laurent_Prerender_Model_Adminhtml_Config_Mode {
     {
         return array(
             array(
-                'value'=>  self::MODE_GUESSING, 
-                'label'=>Mage::helper('prerender')->__('Guessing mode')
+                'value' =>  self::MODE_GUESSING,
+                'label' =>  Mage::helper('prerender')->__('Guessing mode')
             ),
             array(
-                'value'=>  self::MODE_LOG_BASED, 
-                'label'=>Mage::helper('prerender')->__('Based on Logs mode')
+                'value' =>  self::MODE_LOG_BASED,
+                'label' =>  Mage::helper('prerender')->__('Based on Logs mode')
             ),
         );
     }

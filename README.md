@@ -37,6 +37,9 @@ Extension available in:
  * English
  * French
 
+## Tests
+For using selenimum tests, disable "Add secret key to urls" option in BO (System > Configuration > Admin > Security)
+
 ## Bug Reports
 If you find a bug, [you can create a ticket][2].
 

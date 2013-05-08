@@ -71,8 +71,8 @@ class GuessingModeTest extends MagentoTestCase{
         $this->logToBO();
         $this->setPrerenderMode('guessing');
         
-        $categoryPage = 'http://www.magento-prerender.dev/music.html';
-        $categoryNextPage = 'http://www.magento-prerender.dev/music.html?p=2';
+        $categoryPage = 'http://www.magento-prerender.dev/apparel.html';
+        $categoryNextPage = 'http://www.magento-prerender.dev/apparel.html?p=2';
         
         $this->open($categoryPage);
         

@@ -45,14 +45,16 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
                 $this->_prerenderLink = '';
 
                 //Prerender link for cms page
+                /** @var Mage_Cms_Model_Page $cmsPage */
                 $cmsPage = Mage::getSingleton('cms/page');
                 if ($cmsPage->getId()) {
-                    $this->_prerenderLink = $cmsPage->getPrerenderLink();
+                    $this->_prerenderLink = $cmsPage->getData('prerender_link');
                 }
 
                 //Prerender link for category page
                 $category = Mage::registry('current_category');
                 if ($category && $category->getId()) {
+                    /** @var Mage_Catalog_Model_Layer $layer */
                     $layer = Mage::getSingleton('catalog/layer');
                     if ($layer) {
                         $productCollection = $layer->getProductCollection();
@@ -73,7 +75,9 @@ class Laurent_Prerender_Block_Link extends Mage_Core_Block_Template {
             else{
                 //Log Based Mode
                 $url = $this->getRequest()->getRequestUri();
-                $this->_prerenderLink = Mage::helper('prerender')->getMostCommonNextUrl($url);
+                /** @var Laurent_Prerender_Helper_Data $prerenderHelper */
+                $prerenderHelper = $this->helper('prerender');
+                $this->_prerenderLink = $prerenderHelper->getMostCommonNextUrl($url);
             }
         }
 
