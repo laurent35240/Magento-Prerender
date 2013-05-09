@@ -50,7 +50,7 @@ class LogBasedModeTest extends MagentoTestCase{
         $this->waitForPageToLoad("30000");
         
         //Checking that category page has now the product link has prerender link
-        $this->open('/music.html');
+        $this->open('/apparel.html');
         $this->assertElementPresent("//link[@rel='prerender' and @href='http://www.magento-prerender.dev/coalesce-functioning-on-impatience-t-shirt.html']");
     }
     
