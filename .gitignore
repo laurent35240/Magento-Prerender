@@ -1,3 +1,4 @@
+*.diff
 /app/code/community/Find/
 /app/code/community/Phoenix/
 /app/code/core/
