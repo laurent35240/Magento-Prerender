@@ -9,7 +9,7 @@
 <config>
     <modules>
         <Laurent_Prerender>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Laurent_Prerender>
     </modules>
     <global>
