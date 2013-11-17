@@ -14,6 +14,7 @@
  */
 class DataTest extends PHPUnit_Framework_TestCase{
    
+    /** @var  Laurent_Prerender_Helper_Data */
     public $helper;
     
     public function setUp() {
@@ -23,13 +24,13 @@ class DataTest extends PHPUnit_Framework_TestCase{
     /**
      * @test
      */
-    public function getMostCommonNextUrlWithAndWithouDomain(){
-        $urlWithDomain = 'http://www.magento-prerender.dev/music.html';
-        $urlWithoutDomain = '/music.html';
+    public function getMostCommonNextUrlWithAndWithoutDomain(){
+        $urlWithDomain = 'http://www.magento-prerender.dev/apparel.html';
+        $urlWithoutDomain = '/apparel.html';
         
         $nextForUrlWithDomain = $this->helper->getMostCommonNextUrl($urlWithDomain);
         $nextForUrlWithoutDomain = $this->helper->getMostCommonNextUrl($urlWithoutDomain);
-        
+
         $this->assertEquals($nextForUrlWithDomain, $nextForUrlWithoutDomain);
     }
     
@@ -37,8 +38,8 @@ class DataTest extends PHPUnit_Framework_TestCase{
      * @test
      */
     public function getMostCommonNextUrlWithAndWithoutRewrite(){
-        $urlWithRewrite = 'http://www.magento-prerender.dev/music.html';
-        $urlWithoutRewrite = 'http://www.magento-prerender.dev/catalog/category/view/id/3';
+        $urlWithRewrite = 'http://www.magento-prerender.dev/apparel.html';
+        $urlWithoutRewrite = 'http://www.magento-prerender.dev/catalog/category/view/id/18';
         
         $nextForUrlWithRewrite = $this->helper->getMostCommonNextUrl($urlWithRewrite);
         $nextForUrlWithoutRewrite = $this->helper->getMostCommonNextUrl($urlWithoutRewrite);
@@ -50,8 +51,8 @@ class DataTest extends PHPUnit_Framework_TestCase{
      * @test
      */
     public function getRewrittenUrlWithAndWithoutParam(){
-        $urlWithParam = 'http://www.magento-prerender.dev/catalog/category/view/id/3?p=1';
-        $urlWithoutParam = 'http://www.magento-prerender.dev/catalog/category/view/id/3';
+        $urlWithParam = 'http://www.magento-prerender.dev/catalog/category/view/id/18?p=1';
+        $urlWithoutParam = 'http://www.magento-prerender.dev/catalog/category/view/id/18';
         
         $rewrittenUrlWithParam = $this->helper->getRewrittenUrl($urlWithParam);
         $rewrittenUrlWithoutParam = $this->helper->getRewrittenUrl($urlWithoutParam);
