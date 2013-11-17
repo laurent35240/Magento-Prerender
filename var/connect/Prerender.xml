@@ -1,5 +1,5 @@
 <_>
-   <form_key>q07FBcnyJ05Nru90</form_key>
+   <form_key>vmtsJVgYzzWdNNaq</form_key>
    <name>Prerender</name>
    <channel>community</channel>
    <version_ids>
@@ -13,10 +13,9 @@ is loaded. You can then for example load next page of a category while firt page
 is being viewed by customer.</description>
    <license>Academic Free License (AFL 3.0)</license>
    <license_uri>http://opensource.org/licenses/afl-3.0.php</license_uri>
-   <version>1.0.1</version>
+   <version>1.0.2</version>
    <stability>stable</stability>
-   <notes>Code refactored
-Compatibility with Magento 1.7 checked</notes>
+   <notes>Support of Magento 1.8</notes>
    <authors>
       <name>
          <name>Laurent Clouet</name>
@@ -45,7 +44,7 @@ Compatibility with Magento 1.7 checked</notes>
             <max/>
          </max>
          <files>
-            <files>              </files>
+            <files>               </files>
          </files>
       </package>
       <extension>
