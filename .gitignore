@@ -179,7 +179,7 @@
 /RELEASE_NOTES.txt
 /shell/
 /skin/
-/test/selenium/constants.php
+/tests/selenium/constants.php
 /var/cache/
 /var/.htaccess
 /var/locks/
