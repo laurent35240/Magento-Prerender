@@ -1,4 +1,5 @@
 /api.php
+/app/code/community/Cm/
 /app/code/community/Find/
 /app/code/community/Phoenix/
 /app/code/core/
@@ -33,6 +34,7 @@
 /app/design/adminhtml/default/default/layout/sales.xml
 /app/design/adminhtml/default/default/layout/search.xml
 /app/design/adminhtml/default/default/layout/tag.xml
+/app/design/adminhtml/default/default/layout/tax.xml
 /app/design/adminhtml/default/default/layout/widget.xml
 /app/design/adminhtml/default/default/layout/xmlconnect.xml
 /app/design/adminhtml/default/default/locale/
@@ -127,6 +129,7 @@
 /app/etc/local.xml
 /app/etc/local.xml.additional
 /app/etc/local.xml.template
+/app/etc/modules/Cm_RedisSession.xml
 /app/etc/modules/Find_Feed.xml
 /app/etc/modules/Mage_All.xml
 /app/etc/modules/Mage_Api2.xml
@@ -160,6 +163,7 @@
 /get.php
 /.htaccess
 /.htaccess.sample
+/.githookignore
 /.idea
 /includes/
 /index.php
